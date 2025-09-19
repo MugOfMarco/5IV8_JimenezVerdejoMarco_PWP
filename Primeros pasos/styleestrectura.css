@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: cadetblue;
+    text-align: center;
+}
+
+html, body {
+    background-color: chocolate;
+
+
+}
+
+.main-container {
+    border: 7px solid#88FF;
+    border-radius: 50px;
+    margin: 2rem;
+    background-color: darkgreen;
+}
+
+nav, section, footer, aside, article {
+    border:4px solid#223300;
+    margin: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+article, aside {
+    background-color: darkgray;
+    width: 20%;
+    height: 300px;
+    display: inline-flex;
+}
+
+nav, footer, section {
+    background-color: cornflowerblue;
+
+}
