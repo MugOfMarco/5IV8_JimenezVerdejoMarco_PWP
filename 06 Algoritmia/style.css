@@ -1,0 +1,44 @@
+:root {
+    --azul-cosmos: #1E1E2E;
+    --violeta-electrico: #7B5CFA;
+    --verde-glitch: #00E5A0;
+    --blanco: #FFFFFF;
+    --fuente-titulos: 'Oswald', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--azul-cosmos);
+    color: var(--blanco);
+    font-family: var(--fuente-cuerpo);
+    padding: 2rem 0; 
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.problema-title {
+    font-family: var(--fuente-titulos);
+    color: var(--verde-glitch);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.problema-table .problema-input {
+    text-align: center;
+}
+
+.problema-table thead {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: var(--fuente-titulos);
+    color: var(--verde-glitch);
+    font-size: 1.2rem;
+}
