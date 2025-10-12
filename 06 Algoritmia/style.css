@@ -42,3 +42,64 @@ body {
     color: var(--verde-glitch);
     font-size: 1.2rem;
 }
+
+.problema-table td {
+    padding: 0.8rem;
+    border: 1px solid var(--violeta-electrico);
+}
+
+.problema-table {
+    margin-top: 2em;
+    margin-bottom: 1.2em;
+    text-align: center;
+}
+
+.problema-output {
+    background-color: var(--negro-absoluto);
+    color: var(--verde-glitch);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    border: 1px solid #333;
+}
+
+.problema-input {
+    margin-top: 2em;
+    width: 100%;
+    padding: 1em;
+    background-color: var(--azul-cosmos);
+    border: 2px solid var(--violeta-electrico);
+    border-radius: 10px;
+    color: var(--blanco);
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+
+}
+
+.problema-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--violeta-electrico);
+}
+
+.problema-button {
+    display: block;
+    width: 100%;
+    padding: 0.8em 1.5em;
+    background-color: var(--violeta-electrico);
+    color: var(--blanco);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.problema-button:hover {
+    background-color: var(--verde-glitch);
+    color: var(--azul-cosmos);
+}
