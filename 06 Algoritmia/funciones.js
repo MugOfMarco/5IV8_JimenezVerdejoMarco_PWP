@@ -31,10 +31,10 @@ function CalcularPalabras() {
     let CaracteresUnicos = 0;
 
     //bucle para comparar cada palabras
-    for (i=0; i<palabras.lenght; i++ ){
+    for (i=0; i<palabras.length; i++ ){
 
         //visualizar cada cosa no repetida y contar cuantas letras no repetidas hay
-        const LetrasUnicas = new Set (palabras[i].tolowercase());
+        const LetrasUnicas = new Set (palabras[i].toLowerCase());
         const Conteo = LetrasUnicas.size;
 
         //comparación de las palabras 
@@ -44,5 +44,10 @@ function CalcularPalabras() {
         }
     }
 
-    document.getElementById('p3-output').textContent = PalabraGanadora + CaracteresUnicos;
+        if (PalabraGanadora) { 
+        let mensajeFinal = `La palabra con más caracteres únicos es: "${PalabraGanadora}" (${CaracteresUnicos}).`;
+        document.getElementById('p3-output').textContent = mensajeFinal;
+        } else {
+        document.getElementById('p3-output').textContent = "Por favor, ingresa al menos una palabra.";
+        }
 }
