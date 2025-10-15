@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Descuento</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+<body>
+    <header><p>Calcular descuento del 15% por producto</p></header>
+    <div class="container">
+        <div class="container-table">
+            <table class="table">
+
+                <tr>
+                    <td>
+                        Ingresar el precio del producto:
+                    </td>
+                    <td>
+                        <input type="text" id="valorArticulo" onkeypress="return soloNumeros(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="aplicarDescuento()">Calcular descuento</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Precio del producto:
+                    </td>
+                    <td>
+                        <input type="text" id="precioBruto" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Descuento (15%):
+                    </td>
+                    <td>
+                        <input type="text" id="cantidadRebajada" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Total a pagar:
+                    </td>
+                    <td>
+                        <input type="text" id="pagoNeto" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="limpiarEntradas()">Borrar datos</button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+    </footer>
+
+    <script src="./js/funcion3.js"></script>
+
+</body>
+
+
+</html>
