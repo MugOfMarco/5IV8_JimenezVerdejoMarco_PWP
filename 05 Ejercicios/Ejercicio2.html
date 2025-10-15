@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salario</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+<body>
+    <header> <p> Calculadora de sueldo total con ventas</p></header>
+    <div class="container">
+        <div class="container-table">
+            <table class="table">
+                <tr>
+                    <td>
+                        Introduce el sueldo base:
+                    </td>
+                    <td>
+                        <input type="text" name="salarioBase" id="salarioBase" onkeypress="return permitirNumeros(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ingresa la primera venta:
+                    </td>
+                    <td>
+                        <input type="text" name="montoVenta1" id="montoVenta1" onkeypress="return permitirNumeros(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ingresa la segunda venta:
+                    </td>
+                    <td>
+                        <input type="text" name="montoVenta2" id="montoVenta2" onkeypress="return permitirNumeros(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ingresa la tercera venta:
+                    </td>
+                    <td>
+                        <input type="text" name="montoVenta3" id="montoVenta3" onkeypress="return permitirNumeros(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <button type="button" onclick="ejecutarCalculoTotal()"> Calcular sueldo total</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        Sueldo total:
+                    </td>
+                    <td>
+                        <input type="text" name="pagoFinal" id="pagoFinal" readonly="readonly">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comision por venta 1:
+                    </td>
+                    <td>
+                        <input type="text" name="comision1" id="comision1" readonly="readonly">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comision por venta 2:
+                    </td>
+                    <td>
+                        <input type="text" name="comision2" id="comision2" readonly="readonly">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comision por venta 3:
+                    </td>
+                    <td>
+                        <input type="text" name="comision3" id="comision3" readonly="readonly">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="Borrar Datos" name="limpiar" onclick="limpiarFormulario()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+    </footer>
+    <script src="./js/funcion2"></script>
+</body>
+</html>
