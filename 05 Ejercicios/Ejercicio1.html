@@ -1,76 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Inversión</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+<body>
     <div class="container">
-
-
-        <form method="post" name="formulario" action="">
-            <label for="">Formulario para calculo de inversiones Banco con un incremento del 8.05% anual
-            </label>
+        <form method="post" name="formularioCalculo" action="">
+            <header><p>Formulario para calculo de inversiones banco kawaii con un incremento del 8.05% anual</p></header>
             <br>
             <div class="container-table">
-
-
                 <table class="table">
+
                     <tr>
                         <td>
-                            Introduce la cantidad que desea invertir por todo un año
+                            Introduce la cantidad que deseas invertir:
                         </td>
                         <td>
-                            <input type="text" name="cantidad" id="cantidadi" onkeypress="return validarn(event)">
+                            <input type="text" name="montoCapital" id="montoCapital" onkeypress="return validarEntradaNumerica(event)">
                         </td>
                     </tr>
-                    
-                        <tr>
-                            <td>
 
-                            </td>
+                    <tr>
+                        <td>
+                            Introduce a cuántos meses deseas invertir:
+                        </td>
+                        <td>
+                            <input type="text" name="periodoTiempo" id="periodoTiempo" onkeypress="return validarEntradaNumerica(event)" onblur="checarRangoMeses()">
+                        </td>
+                    </tr>
 
-                            <td>
-                                <input type="button" value="Calcular interes" name="enviar" onclick="return interes()">
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="button" name="procesar" value="Calcular Interés" onclick="procesarCalculo()">
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                Su saldo total con el interes es de:
-                            </td>
-                            <td>
-                                <input type="text" name="sueldoi" id="saldoid" readonly="readonly" class="input_text">
-                            </td>
+                    <tr>
+                        <td>
+                            Su saldo total con el interes es de:
+                        </td>
+                        <td>
+                            <input type="text" name="saldoFinal" id="saldoFinal" readonly="readonly" class="input_text">
+                        </td>
+                    </tr>
 
-                        </tr>
-
-                        <tr>
-                            <td>
-
-                            </td>
-                            <td><input type="button" value="borrar datos" name="borrar" onclick=""></td>
-                        </tr>
-                    
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                           <input type="button" value="Borrar Datos" name="limpiar" onclick="limpiarCampos()"> 
+                        </td>
+                    </tr>
 
                 </table>
+
             </div>
 
-
-
         </form>
-    </div>
-
-    <div class="container">
 
     </div>
 
 
+<footer>
+    <button onclick="location.href='../index.html'">Regresar al index</button>
+</footer>
 
+    <script src="./js/funcion1.js"></script>
 
-    <script src="./funciones.js"></script>
-    </body>
+</body>
 </html>
