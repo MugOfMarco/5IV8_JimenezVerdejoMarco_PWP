@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Grupo</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+<body>
+    <header><p>Calcular porcentaje de hombres y mujeres</p></header>
+    <div class="container">
+
+        <div class="container-table">
+
+            <table class="table">
+                <tr>
+                    <td>
+                        Ingresar la cantidad de alumnos en el salón:
+                    </td>
+                    <td>
+                        <input type="text" id="totalAlumnos" onkeypress="return soloEnteros(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingresar la cantidad de mujeres en el salón:
+                    </td>
+                    <td>
+                        <input type="text" id="numMujeres" onkeypress="return soloEnteros(event)">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Ingresar la cantidad de hombres en el salón:
+                    </td>
+                    <td>
+                        <input type="text" id="numHombres" onkeypress="return soloEnteros(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <button type="button" onclick="verificarYProcesar()">Calcular porcentaje</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Porcentaje de hombres:
+                    </td>
+                    <td>
+                        <input type="text" id="resHombres" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Porcentaje de mujeres:
+                    </td>
+                    <td>
+                        <input type="text" id="resMujeres" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="reiniciarForm()">Borrar datos</button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+    </footer>
+    
+    <script src=""></script>
+</body>
+</html>
