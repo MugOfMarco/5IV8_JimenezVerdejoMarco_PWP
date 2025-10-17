@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Calificación</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+
+<body>
+    <header><p>Calculadora de calificación final de algoritmia </p></header>
+
+    <div class="container">
+
+        <div class="table">
+
+            <table class="table">
+                <tr>
+                    <td>
+                        Ingresa tu calificación del primer parcial:
+                    </td>
+
+                    <td>
+                        <input type="text" id="nota1" onkeypress="return filtrarEntrada(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingresa tu calificación del segundo parcial:
+                    </td>
+
+                    <td>
+                        <input type="text" id="nota2" onkeypress="return filtrarEntrada(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingresa tu calificación del tercer parcial:
+                    </td>
+
+                    <td>
+                        <input type="text" id="nota3" onkeypress="return filtrarEntrada(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingresa tu calificación del examen final:
+                    </td>
+
+                    <td>
+                        <input type="text" id="notaExamen" onkeypress="return filtrarEntrada(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingresa tu calificación del trabajo final:
+                    </td>
+
+                    <td>
+                        <input type="text" id="notaProyecto" onkeypress="return filtrarEntrada(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>        
+
+                    </td>
+
+                    <td>
+                        <button type="button" onclick="generarPromedio()">Calcular calificación final</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Calificación final:
+                    </td>
+
+                    <td>
+                        <input type="text" id="promedioFinal" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>        
+
+                    </td>
+
+                    <td>
+                        <button type="button" onclick="limpiarDatos()">Borrar datos</button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+    </footer>
+
+    <script src="./js/calificaciones.js"></script>
+    
+</body>
+</html>
