@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <link rel="stylesheet" href="./css/styleejercicios.css">
+</head>
+<body>
+    <header><p>Calculadora de edad</p></header>
+
+    <div class="container">
+        <div class="container-table">
+
+            <table class="table">
+                <tr>
+                    <td>Ingrese en que año de nacimiento:</td>
+                    <td>
+                        <input type="text" id="añoi" onkeypress="return validarn(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingrese el mes de nacimiento:
+                    </td>
+                    <td>
+                        <input type="text" id="mesi" onkeypress="return validarn(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Ingrese el día de nacimiento:
+                    </td>
+                    <td>
+                        <input type="text" id="diai" onkeypress="return validarn(event)">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" id="btnCalcular" onclick="calcularEdad()">Calcular edad</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Edad:
+                    </td>
+                    <td>
+                        <input type="text" id="edadi" readonly="readonly">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" id="btnBorrar" onclick="borrarf()">Borrar datos</button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+        
+    </div>
+
+    <footer>
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+    </footer>
+
+    <script src="./js/funcion6.js"></script>
+</body>
+</html>
