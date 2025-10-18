@@ -45,7 +45,7 @@ table.table {
 }
 
 table.table tr {
-    border-bottom: 1px dashed #4d4dff;
+    border-bottom: 2px dashed #4d4dff;
 }
 
 table.table tr:last-child {
@@ -53,7 +53,7 @@ table.table tr:last-child {
 }
 
 table.table td {
-    padding: 16px 10px;
+    padding: 12px 10px;
     vertical-align: middle;
 }
 
@@ -71,12 +71,11 @@ table.table td:last-child {
 
 input[type="text"] {
     width: 100%;
-    padding: 12px;
-    font-size: 1.1em;
+    padding: 15px;
+    font-size: 1.2em;
     background-color: #0a0a1a;
     border: 2px solid #4d4dff;
     color: #e0e0e0;
-    border-radius: 5px;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -104,13 +103,14 @@ input[type="button"] {
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 button:hover,
 input[type="button"]:hover {
     background-color: #ffffff;
-    color: #0a0a1a;;
+    color: #0a0a1a;
+    transform: scale(1.05);
 }
 
 footer {
@@ -119,10 +119,10 @@ footer {
 }
 
 footer button {
-    width: auto;>
+    width: auto;
     background-color: transparent;
     color: #4d4dff;
-    border: 2px solid #4d4dff;
+    border: solid #4d4dff;
 }
 
 footer button:hover {
