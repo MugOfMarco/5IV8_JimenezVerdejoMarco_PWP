@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0a0a1a;
+    color: #e0e0e0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #00ff9d;
+    text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d;
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #4d4dff;
+    box-shadow: 0 0 15px rgba(77, 77, 255, 0.4);
+}
+
+.container-table,
+.table {
+    width: 100%;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.table tr {
+    border-bottom: 1px dashed #4d4dff;
+}
+
+table.table tr:last-child {
+    border-bottom: none;
+}
+
+table.table td {
+    padding: 16px 10px;
+    vertical-align: middle;
+}
+
+table.table td:first-child {
+    font-weight: bold;
+    color: #e0e0e0;
+    width: 50%;
+    text-align: right;
+}
+
+table.table td:last-child {
+    width: 50%;
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #0a0a1a;
+    border: 2px solid #4d4dff;
+    color: #e0e0e0;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #00ff9d;
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+}
+
+input[type="text"][readonly] {
+    background-color: #101020;
+    color: #00ff9d;
+    font-weight: bold;
+}
+
+button,
+input[type="button"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0a0a1a;
+    background-color: #00ff9d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover,
+input[type="button"]:hover {
+    background-color: #ffffff;
+    color: #0a0a1a;;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer button {
+    width: auto;>
+    background-color: transparent;
+    color: #4d4dff;
+    border: 2px solid #4d4dff;
+}
+
+footer button:hover {
+    background-color: #4d4dff;
+    color: #ffffff;
+}
