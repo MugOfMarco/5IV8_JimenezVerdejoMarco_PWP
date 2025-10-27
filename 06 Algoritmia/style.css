@@ -120,8 +120,7 @@ footer button:hover {
     color: #ffffff;
 }
 
-button,
-input[type="button"] {
+button{
     width: 100%;
     padding: 12px 20px;
     font-size: 1.1em;
@@ -135,8 +134,7 @@ input[type="button"] {
     transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
-button:hover,
-input[type="button"]:hover {
+button:hover {
     background-color: #ffffff;
     color: #0a0a1a;
     transform: scale(1.05);

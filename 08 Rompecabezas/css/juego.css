@@ -1,11 +1,13 @@
-/*Código armado por La Foca Loca S.A. No modificar*/
-
 body {
     font-family: Arial, sans-serif;
     width: 940px;
     margin: 2% auto;
     min-height: 100%;
-    background-image: url(../images/adventure.jpg);
+    background-image: url('../images/fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     box-sizing: border-box;
 }
 
@@ -24,6 +26,14 @@ li::before {
     color: #EC6778;
 }
 
+.col-40 {
+    width: 40%;
+    max-width: 376px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    color: #000;
+}
+
 .col-40 h1 {
     margin: 0% auto;
     text-align: center;
@@ -38,18 +48,9 @@ li::before {
     vertical-align: top;
 }
 
-.col-40 {
-    width: 40%;
-    max-width: 376px;
-    /* background: #FFF; */
-    padding: 30px;
-    color: #000;
-}
-
 .col-60 {
     width: 60%;
     max-width: 564px;
-    /* background: #E84A5F; */
 }
 
 #flecha {
@@ -74,16 +75,12 @@ li::before {
     }
 }
 
-
-/* este es el tablero de juego */
-
 #juego {
     background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
     background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
     background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
     background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
     background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
-    /* background-color: blue; */
     width: 600px;
     height: 600px;
     box-sizing: border-box;
@@ -100,9 +97,6 @@ li::before {
     height: 100%;
     border: 0.30px solid rgb(97, 204, 209);
 }
-
-
-/*  títulos, las instrucciones y el footer.*/
 
 #instrucciones h2 {
     text-align: center;
@@ -145,8 +139,6 @@ li::before {
     cursor: pointer;
     font-style: italic;
     font-weight: bold;
-    /* border: 1px solid black; */
-    /* border-radius: 8px; */
     margin: 2px auto;
     width: 50%;
     font-size: 12px;
@@ -168,7 +160,6 @@ li::before {
 }
 
 #iniciarButton:hover {
-    /* background-image: #f3e6ec; */
     background: #2079b0;
     background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);
     background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);
