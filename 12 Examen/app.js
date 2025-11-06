@@ -34,5 +34,40 @@ const disneyApp = () => {
             });
         }
 
+    botonBuscar.onclick = async () => {
+    
+        const characterName = inputBusqueda.value.trim();
+        const data = await getCharacterData(characterName);
+
+        // Limpiar resultados anteriores
+        contenedorResultados.innerHTML = '';
+        if (data.requestFailed) {
+            contenedorResultados.innerHTML = `<p>Error al obtener los datos. Por favor, inténtalo de nuevo más tarde.</p>`;
+            return;
+        }
+        if (data.count === 0) {
+            contenedorResultados.innerHTML = `<p>No se encontraron personajes con el nombre "${characterName}".</p>`;
+            return;
+        }
+        // Mostrar resultados
+        data.data.forEach((character) => {
+            const characterDiv = document.createElement('div');
+            characterDiv.classList.add('character-card');
+            characterDiv.innerHTML = `
+                <h3>${character.name}</h3>
+                <img src="${character.imageUrl}" alt="${character.name}" />
+                <p><strong>Films:</strong></p>
+                <ul>
+                    ${character.films.map(film => `<li>${film}</li>`).join('')}
+                </ul>
+            `;
+            contenedorResultados.appendChild(characterDiv);
+        });
+
+
+    }
+
+    
+
 
 };
