@@ -91,3 +91,20 @@ button:hover {
     color: var(--blanco);
     box-shadow: 0 0 15px var(--violeta-electrico);
 }
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer button {
+    width: auto;
+    background-color: transparent;
+    color: #4d4dff;
+    border: solid #4d4dff;
+}
+
+footer button:hover {
+    background-color: #4d4dff;
+    color: #ffffff;
+}
