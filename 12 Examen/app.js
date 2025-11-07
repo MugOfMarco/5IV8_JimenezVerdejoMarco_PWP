@@ -20,7 +20,7 @@ const disneyApp = () => {
 
     const url = characterName 
             ? `${disneyApiUrl}character?name=${encodeURIComponent(characterName)}`
-            : `${disneyApiUrl}character`; // Opcional: buscar todos si está vacío
+            : `${disneyApiUrl}character`;
 
 
     return fetch(url, { method: 'GET' })
@@ -43,6 +43,9 @@ const disneyApp = () => {
     botonBuscar.onclick = async () => {
     
         const characterName = inputBusqueda.value.trim();
+
+        contenedorResultados.innerHTML = `<p style="text-align: center; font-style: italic;">Buscando...</p>`;
+
         const data = await getCharacterData(characterName);
 
         // Limpiar resultados anteriores
@@ -51,10 +54,15 @@ const disneyApp = () => {
             contenedorResultados.innerHTML = `<p>Error al obtener los datos. Por favor, inténtalo de nuevo más tarde.</p>`;
             return;
         }
+
+
         if (data.count === 0) {
             contenedorResultados.innerHTML = `<p>No se encontraron personajes con el nombre "${characterName}".</p>`;
             return;
         }
+
+        const characters = data.data;
+        
         // Mostrar resultados
         data.data.forEach((character) => {
             const characterDiv = document.createElement('div');
