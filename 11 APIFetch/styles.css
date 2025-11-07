@@ -249,3 +249,31 @@ ul {
 #pokemonAbilities li::before {
     content: "⛏️ ";
 }
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer button {
+    font-family: "Chintzy";
+    font-size: 28px;
+
+    padding: 10px 25px;
+    border-radius: 13px;
+
+    background-color: #fff0c9;         
+    color: #00265f;                   
+
+    border: 6px groove #888888;        
+    cursor: pointer;
+
+    transition: 0.2s ease-in-out;
+}
+
+
+footer button:hover {
+    background-color: #6390f0;         
+    color: #ffffff;                    
+    border: 6px inset #888888;         
+}

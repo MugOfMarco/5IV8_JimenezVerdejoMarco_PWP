@@ -168,3 +168,46 @@ li::before {
     background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
     text-decoration: none;
 }
+
+footer {
+    width: 940px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    
+    background: rgba(255, 255, 255, 0.85);   
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+footer p {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;                             
+    margin-bottom: 15px;
+}
+
+
+footer button {
+    cursor: pointer;
+    padding: 10px 25px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+    color: #fff;
+
+    border-radius: 5px;
+    border: none;
+
+    text-shadow: 2px 2px 1px #9daef5;
+    box-shadow: 3px 3px 15px #666;
+    transition: 0.2s ease-in-out;
+}
+
+
+footer button:hover {
+    background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
+    transform: scale(1.05);
+}
