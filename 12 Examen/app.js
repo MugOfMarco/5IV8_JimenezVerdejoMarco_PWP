@@ -62,7 +62,7 @@ const disneyApp = () => {
         }
 
         const characters = data.data;
-        
+
         // Mostrar resultados
         data.data.forEach((character) => {
             const characterDiv = document.createElement('div');
@@ -70,7 +70,7 @@ const disneyApp = () => {
             characterDiv.innerHTML = `
                 <h3>${character.name}</h3>
                 <img src="${character.imageUrl}" alt="${character.name}" />
-                <p><strong>Films:</strong></p>
+                <p><strong>Films: (${character.films.length})</strong></p>
                 <ul>
                     ${character.films.map(film => `<li>${film}</li>`).join('')}
                 </ul>
