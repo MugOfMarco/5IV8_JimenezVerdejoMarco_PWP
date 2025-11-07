@@ -8,14 +8,20 @@ const disneyApp = () => {
     //URL Base de la API 
     const disneyApiUrl = "https://api.disneyapi.dev/";  
 
-    // Función para buscar películas por título ---
-    const inputBusqueda = document.getElementById("disney-input");
-    const botonBuscar = document.getElementById("btn-search");
+    // Función para buscar películas por título 
+    const inputBusqueda = document.getElementById("searchInput"); 
+    const botonBuscar = document.getElementById("searchButton");
+    //----------------------
+
+
     const contenedorResultados = document.getElementById("contenedor-resultados");
 
     const getCharacterData = (characterName) => {
 
-    const url = `${disneyApiUrl}character?name=${encodeURIComponent(characterName)}`;
+    const url = characterName 
+            ? `${disneyApiUrl}character?name=${encodeURIComponent(characterName)}`
+            : `${disneyApiUrl}character`; // Opcional: buscar todos si está vacío
+
 
     return fetch(url, { method: 'GET' })
 
