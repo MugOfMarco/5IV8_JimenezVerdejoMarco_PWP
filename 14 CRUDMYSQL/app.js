@@ -43,20 +43,23 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/css'));
 
 //vamos a crear el crud de estudiantes a partir de rutas
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
 
 //ruta get para mostrar el formulario y la lista de estudiantes
 app.get('/', (req, res)=>{
-    //necesito obtener la lista de estudiantes desde la base de datos
-    const querry = 'SELECT * FROM estudiantes';
-    bd.query(querry, (error, resultados)=>{
+    const query = 'SELECT * FROM bitacora_lubricacion ORDER BY fecha DESC';
+    bd.query(query, (error, resultados)=>{
         if(error){
-            console.log('Error al obtener los estudiantes: ' + error);
-            res.status(500).send('Error al obtener los estudiantes');
+            console.log('Error al obtener la bitácora: ' + error);
+            res.status(500).send('Error al obtener la bitácora');
+            return;
         }
-        res.render('index', { estudiantes: resultados });
-        
+        res.render('index', { bitacora: resultados });
     });
 });
+
 
 //ruta para crear un estudiante
 app.post('/estudiantes', (req, res) => {
