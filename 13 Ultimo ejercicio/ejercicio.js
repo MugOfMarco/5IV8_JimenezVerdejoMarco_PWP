@@ -2,7 +2,7 @@ function memoize(fn) {
     const cache = new Map();
     const RES = Symbol('res');
 
-    return function(...args) {
+    return function (...args) {
         let nodo = cache;
 
         for (const arg of args) {
