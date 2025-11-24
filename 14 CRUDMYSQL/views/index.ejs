@@ -19,8 +19,12 @@
             <div id="main-container">
                
                 <h1>
-                        Registro de Mantenimiento - Bitácora de Lubricación
+                        Registro de Mantenimiento 
                     </h1>
+
+            <h1>
+                Bitacora de Lubricación
+            </h1>
 
                         <div id="form-container">
                         <form action="/bitacora" method="POST">
@@ -119,7 +123,6 @@
                                                                 <a href="/bitacora/edit/<%= registro.id %>">Editar</a>
                                                                 |
                                                                 <a href="/bitacora/delete/<%= registro.id %>"          
-                                                             
                                     onclick="return confirm('¿Seguro que deseas eliminar el registro #<%= registro.id %>?');">
                                                                         Eliminar
                                                                     </a>
@@ -131,6 +134,13 @@
                     </div>
                    
     </div>
+
+        <footer>
+        <button onclick="location.href='../index.html'">Regresar al index</button>
+        </footer>
+
         </body>
+
+    
 
 </html>
