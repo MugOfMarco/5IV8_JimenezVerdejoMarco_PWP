@@ -17,7 +17,7 @@
         Registro de Mantenimiento - Bitácora de Lubricación
     </h1>
 
-    <form action="/Mantenimiento" method="POST">
+    <form action="/bitacora" method="POST">
         <label for="equipo">ID Equipo/Componente:</label>
         <input type="text" id="equipo" name="equipo" required><br><br>
 
@@ -50,6 +50,7 @@
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>ID Equipo/Componente</th>
                 <th>Tipo de Fluido/Lubricante</th>
                 <th>Fecha de Cambio/Relleno</th>
@@ -57,25 +58,57 @@
                 <th>Muestra para Análisis</th>
                 <th>Resultados del Análisis (Ref.)</th>
                 <th>Próximo Cambio Estimado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <% bitacora.forEach(function(registro) { %>
-            <tr>
-                <td><%= registro.equipo %></td>
-                <td><%= registro.tipo_lubricante %></td>
-                <td><%= registro.fecha.toISOString().split('T')[0] %></td>
-                <td><%= registro.cantidad_utilizada %></td>
-                <td><%= registro.analisis ? 'Sí' : 'No' %></td>
-                <td><%= registro.resultados_analisis %></td>
-                <td><%= registro.fecha_proxima ? registro.fecha_proxima.toISOString().split('T')[0] : '' %></td>
-            </tr>
-            <% }); %>
-        </tbody>
+                <tr>
+                    <td>
+                        <%= registro.id %>
+                    </td>
+                    <td>
+                        <%= registro.equipo %>
+                    </td>
+                    <td>
+                        <%= registro.tipo_lubricante %>
+                    </td>
 
+                    <td>
+                        <%= registro.fecha.toLocaleDateString('es-MX') %>
+                    </td>
+
+                    <td>
+                        <%= registro.cantidad_utilizada %>
+                    </td>
+
+                    <td>
+                        <%= registro.analisis ? 'Sí' : 'No' %>
+                    </td>
+
+                    <td>
+                        <%= registro.resultados_analisis || '-' %>
+                    </td>
+                    <td>
+                        <%= registro.fecha_proxima ? registro.fecha_proxima.toLocaleDateString('es-MX') : '-' %>
+                    </td>
+
+                    <td>
+                        <a href="/bitacora/edit/<%= registro.id %>">Editar</a>
+
+                        |
+
+                        <a href="/bitacora/delete/<%= registro.id %>"
+                            onclick="return confirm('¿Seguro que deseas eliminar el registro #<%= registro.id %>?');">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
     </table>
 
 
-    
 </body>
+
 </html>

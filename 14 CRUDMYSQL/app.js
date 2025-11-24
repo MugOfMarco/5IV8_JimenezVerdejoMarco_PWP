@@ -63,6 +63,7 @@ app.get('/', (req, res) => {
 
 //ruta para crear un estudiante
 app.post('/bitacora', (req, res) => {
+    console.log('Datos recibidos del formulario:', req.body);
     const {
         equipo,
         tipo_lubricante,
@@ -73,10 +74,11 @@ app.post('/bitacora', (req, res) => {
         fecha_proxima
     } = req.body;
 
-    const querry = `INSERT INTO bitacora_lubricacion 
+    const query = `INSERT INTO bitacora_lubricacion 
     (equipo, tipo_lubricante, fecha, cantidad_utilizada, 
     analisis, resultados_analisis, fecha_proxima) 
-    VALUES (?, ?, ?, ?, ?, ?, ?);`;
+    VALUES (?, ?, ?, ?, ?, ?, ?);
+    `;
 
     const values = [
         equipo, 
@@ -88,7 +90,7 @@ app.post('/bitacora', (req, res) => {
         fecha_proxima || null 
     ];
 
-    bd.query(querry, (error, resultados) => {
+    bd.query(query, values, (error, resultados) => { 
         if (error) {
             console.log('Error al agregar la entrada a la bitácora: ' + error);
             res.status(500).send('Error al agregar la entrada a la bitácora');
@@ -151,8 +153,7 @@ app.post('/bitacora/update/:id', (req, res) => {
         UPDATE bitacora_lubricacion 
         SET equipo = ?, tipo_lubricante = ?, fecha = ?, cantidad_utilizada = ?, 
             analisis = ?, resultados_analisis = ?, fecha_proxima = ? 
-        WHERE id = ?;
-    `;
+        WHERE id = ?;   `;
 
     const values = [
         equipo, 
