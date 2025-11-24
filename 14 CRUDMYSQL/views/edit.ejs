@@ -3,28 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualización de Estudiantes</title>
+    <title>Editar Registro #<%= registro.id %></title>
+    <link rel="stylesheet" href="/styles.css"> 
 </head>
 <body>
-    <h1>Actualización de datos del estudiante</h1>
-    <form action="/estudiantes/update/<%= estudiante.id %>" method="POST">
-        <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" name="nombre" value="<%= estudiante.nombre %>" required>
-        <label for="edad">Edad: </label>
-        <input type="number" id="edad" name="edad" value="<%= estudiante.edad %>" required>
-        <label for="curso">Curso: </label>
-        <input type="text" id="curso" name="curso" value="<%= estudiante.curso %>" required>
-        <button type="submit" >Actualizar datos</button>
-    </form>
 
-    <ul>
-        <% estudiantes.forEach(function(estudiante){ %>
-            <li><strong><%= estudiante.nombre %></strong> (Edad: <%= estudiante.edad %>, Curso: <%= estudiante.curso %>)
-            <a href="/estudiantes/edit/<%= estudiante.id %>">Editar</a>
-            <a href="/estudiantes/delete/<%= estudiante.id %>">Eliminar</a>
-            </li>
-        <% }); %>
-    </ul>
-    
-</body>
+    <div id="main-container">
+        
+        <h1>Editar Registro de Lubricación #<%= registro.id %></h1>
+
+        <div id="form-container">
+            
+            <form action="/bitacora/update/<%= registro.id %>" method="POST">
+                
+                <div class="input-group">
+                    <label for="equipo">ID Equipo/Componente:</label>
+                    <input type="text" id="equipo" name="equipo" value="<%= registro.equipo %>" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="tipo_lubricante">Tipo de Fluido/Lubricante:</label>
+                    <input type="text" id="tipo_lubricante" name="tipo_lubricante" value="<%= registro.tipo_lubricante %>" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="fecha">Fecha de Cambio/Relleno:</label>
+                    <input type="date" id="fecha" name="fecha" 
+                        value="<%= registro.fecha.toISOString().split('T')[0] %>" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="cantidad_utilizada">Cantidad Utilizada (Lts):</label>
+                    <input type="number" step="0.01" id="cantidad_utilizada" name="cantidad_utilizada" value="<%= registro.cantidad_utilizada %>" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="analisis">Muestra para Análisis:</label>
+                    <select id="analisis" name="analisis" required>
+                        <option value="1" <%= registro.analisis ? 'selected' : '' %>>Sí</option>
+                        <option value="0" <%= registro.analisis ? '' : 'selected' %>>No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="resultados_analisis">Resultados del Análisis (Ref.):</label>
+                    <input type="text" id="resultados_analisis" name="resultados_analisis" value="<%= registro.resultados_analisis %>">
+                </div>
+
+                <div class="in-form"> 
+                    <label for="fecha_proxima">Próximo Cambio Estimado:</label>
+                    <input type="date" id="fecha_proxima" name="fecha_proxima" 
+                        value="<%= registro.fecha_proxima ? registro.fecha_proxima.toISOString().split('T')[0] : '' %>">
+                </div>
+                
+                <div class="acciones-form">
+                    <button type="submit">Guardar Cambios</button>
+                    <a href="/">Cancelar</a>
+                </div>
+                
+            </form>
+        </div>
+        </div>
+    </body>
 </html>

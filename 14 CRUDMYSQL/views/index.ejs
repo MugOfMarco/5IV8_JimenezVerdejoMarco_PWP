@@ -2,113 +2,135 @@
 <html lang="en">
 
 <head>
+       
     <meta charset="UTF-8">
+       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Bitacora de Lubricación
-    </title>
+        <title>
+                Bitacora de Lubricación
+            </title>
+       
     <link rel="stylesheet" href="/styles.css">
 
 </head>
 
 <body>
 
-    <h1>
-        Registro de Mantenimiento - Bitácora de Lubricación
-    </h1>
+            <div id="main-container">
+               
+                <h1>
+                        Registro de Mantenimiento - Bitácora de Lubricación
+                    </h1>
 
-    <form action="/bitacora" method="POST">
-        <label for="equipo">ID Equipo/Componente:</label>
-        <input type="text" id="equipo" name="equipo" required><br><br>
+                        <div id="form-container">
+                        <form action="/bitacora" method="POST">
+                               
+                                 <div class="input-group">
+                                        <label for="equipo">ID Equipo/Componente:</label>
+                                        <input type="text" id="equipo" name="equipo" required>
+                                    </div>
+                               
+                                <div class="input-group">
+                                        <label for="tipo_lubricante">Tipo de Fluido/Lubricante:</label>
+                                        <input type="text" id="tipo_lubricante" name="tipo_lubricante" required>
+                                    </div>
+                               
+                                <div class="input-group">
+                                        <label for="fecha">Fecha de Cambio/Relleno:</label>
+                                        <input type="date" id="fecha" name="fecha" required>
+                                    </div>
+                               
+                                <div class="input-group">
+                                        <label for="cantidad_utilizada">Cantidad Utilizada (Lts):</label>
+                                        <input type="number" step="0.01" id="cantidad_utilizada"
+                        name="cantidad_utilizada" required>
+                                    </div>
+                               
+                                <div class="input-group">
+                                        <label for="analisis">Muestra para Análisis:</label>
+                                        <select id="analisis" name="analisis" required>
+                                                <option value="1">Sí</option>
+                                                <option value="0" selected>No</option>
+                                            </select>
+                                    </div>
+                               
+                                <div class="input-group">
+                                        <label for="resultados_analisis">Resultados del Análisis (Ref.):</label>
+                                        <input type="text" id="resultados_analisis" name="resultados_analisis">
+                                    </div>
+                               
+                                <div class="in-form">
+                                        <label for="fecha_proxima">Próximo Cambio Estimado:</label>
+                                        <input type="date" id="fecha_proxima" name="fecha_proxima">
+                                    </div>
+                               
+                                                <div class="acciones-form">
+                                        <button type="submit">Guardar Registro</button>
+                                    </div>
+                            </form>
+                    </div>
+                       
+        <hr>
 
-        <label for="tipo_lubricante">Tipo de Fluido/Lubricante:</label>
-        <input type="text" id="tipo_lubricante" name="tipo_lubricante" required><br><br>
-
-        <label for="fecha">Fecha de Cambio/Relleno:</label>
-        <input type="date" id="fecha" name="fecha" required><br><br>
-
-        <label for="cantidad_utilizada">Cantidad Utilizada (Lts):</label>
-        <input type="number" step="0.01" id="cantidad_utilizada" name="cantidad_utilizada" required><br><br>
-
-        <label for="analisis">Muestra para Análisis:</label>
-        <select id="analisis" name="analisis" required>
-            <option value="1">Sí</option>
-            <option value="0" selected>No</option>
-        </select><br><br>
-
-        <label for="resultados_analisis">Resultados del Análisis (Ref.):</label>
-        <input type="text" id="resultados_analisis" name="resultados_analisis"><br><br>
-
-        <label for="fecha_proxima">Próximo Cambio Estimado:</label>
-        <input type="date" id="fecha_proxima" name="fecha_proxima"><br><br>
-
-        <button type="submit">Guardar Registro</button>
-    </form>
-    <hr>
-
-    <h2>Bitácora de Lubricación</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>ID Equipo/Componente</th>
-                <th>Tipo de Fluido/Lubricante</th>
-                <th>Fecha de Cambio/Relleno</th>
-                <th>Cantidad Utilizada (Lts)</th>
-                <th>Muestra para Análisis</th>
-                <th>Resultados del Análisis (Ref.)</th>
-                <th>Próximo Cambio Estimado</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% bitacora.forEach(function(registro) { %>
-                <tr>
-                    <td>
-                        <%= registro.id %>
-                    </td>
-                    <td>
-                        <%= registro.equipo %>
-                    </td>
-                    <td>
-                        <%= registro.tipo_lubricante %>
-                    </td>
-
-                    <td>
-                        <%= registro.fecha.toLocaleDateString('es-MX') %>
-                    </td>
-
-                    <td>
-                        <%= registro.cantidad_utilizada %>
-                    </td>
-
-                    <td>
-                        <%= registro.analisis ? 'Sí' : 'No' %>
-                    </td>
-
-                    <td>
-                        <%= registro.resultados_analisis || '-' %>
-                    </td>
-                    <td>
-                        <%= registro.fecha_proxima ? registro.fecha_proxima.toLocaleDateString('es-MX') : '-' %>
-                    </td>
-
-                    <td>
-                        <a href="/bitacora/edit/<%= registro.id %>">Editar</a>
-
-                        |
-
-                        <a href="/bitacora/delete/<%= registro.id %>"
-                            onclick="return confirm('¿Seguro que deseas eliminar el registro #<%= registro.id %>?');">
-                            Eliminar
-                        </a>
-                    </td>
-                </tr>
-                <% }); %>
-        </tbody>
-    </table>
-
-
-</body>
+                        <div id="bitacora-container">
+                        <h2>Bitácora de Lubricación</h2>
+                        <table>
+                                <thead>
+                                        <tr>
+                                                <th>ID</th>
+                                                <th>ID Equipo/Componente</th>
+                                                <th>Tipo de Fluido/Lubricante</th>
+                                                <th>Fecha de Cambio/Relleno</th>
+                                                <th>Cantidad Utilizada (Lts)</th>
+                                                <th>Muestra para Análisis</th>
+                                                <th>Resultados del Análisis (Ref.)</th>
+                                                <th>Próximo Cambio Estimado</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                    </thead>
+                                <tbody>
+                                        <% bitacora.forEach(function(registro) { %>
+                                                <tr>
+                                                        <td>
+                                <%= registro.id %>
+                            </td>
+                                                        <td>
+                                <%= registro.equipo %>
+                            </td>
+                                                        <td>
+                                <%= registro.tipo_lubricante %>
+                            </td>
+                                                        <td>
+                                <%= registro.fecha.toLocaleDateString('es-MX') %>
+                            </td>
+                                                        <td>
+                                <%= registro.cantidad_utilizada %>
+                            </td>
+                                                        <td>
+                                <%= registro.analisis ? 'Sí' : 'No' %>
+                            </td>
+                                                        <td>
+                                <%= registro.resultados_analisis || '-' %>
+                            </td>
+                                                        <td>
+                                <%= registro.fecha_proxima ? registro.fecha_proxima.toLocaleDateString('es-MX') : '-' %>
+                            </td>
+                                                        <td>
+                                                                <a href="/bitacora/edit/<%= registro.id %>">Editar</a>
+                                                                |
+                                                                <a href="/bitacora/delete/<%= registro.id %>"          
+                                                             
+                                    onclick="return confirm('¿Seguro que deseas eliminar el registro #<%= registro.id %>?');">
+                                                                        Eliminar
+                                                                    </a>
+                                                            </td>
+                                                    </tr>
+                                            <% }); %>
+                                            </tbody>
+                            </table>
+                    </div>
+                   
+    </div>
+        </body>
 
 </html>
