@@ -22,7 +22,7 @@
                 
                 <div class="input-group">
                     <label for="tipo_lubricante">Tipo del Fluido:</label>
-                    <input type="text" id="tipo_lubricante" name="tipo_lubricante" placeholder="Ej: Aceite ISO VG 46" required>
+                    <input type="text" id="tipo_lubricante" name="tipo_lubricante" placeholder="Ej: Aceite ISO VG 46 (solo letras)" required class="input-solo-letras">
                 </div>
                 
                 <div class="input-group">
@@ -32,7 +32,7 @@
                 
                 <div class="input-group">
                     <label for="cantidad_utilizada">Cantidad Utilizada (Lts):</label>
-                    <input type="number" id="cantidad_utilizada" name="cantidad_utilizada" placeholder="Use punto decimal (Ej: 250.75)" required>
+                    <input type="number" step="0.01" id="cantidad_utilizada" name="cantidad_utilizada" placeholder="Use punto decimal (Ej: 250.75)" required>
                 </div>
                 
                 <div class="input-group">
@@ -48,8 +48,9 @@
                     <input type="text" id="resultados_analisis" name="resultados_analisis" placeholder="Ej: OK-Baja Contaminación o Ref: LAB-2025-42">
                 </div>
                 
-                <div class="input-group"> <label for="fecha_proxima">Próximo Cambio Estimado:</label>
-                    <input type="date" id="fecha_proxima" name="fecha_proxima">
+                <div class="input-group">
+                    <label for="fecha_proxima">Próximo Cambio Estimado:</label>
+                    <input type="date" id="fecha_proxima" name="fecha_proxima" placeholder="Formato: dd/mm/aaaa">
                 </div>
                 
                 <div class="acciones-form">
@@ -106,6 +107,7 @@
         <button onclick="location.href='../index.html'">Regresar al index</button>
     </footer>
 
+    <script src="/14 CRUDMYSQL/js/validaciones.js"></script>
 </body>
 
 </html>
