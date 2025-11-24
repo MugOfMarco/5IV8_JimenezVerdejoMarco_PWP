@@ -9,7 +9,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 
-require('dotenv').config({path: './.env'});
+require('dotenv').config({ path: './.env' });
 
 const app = express();
 const port = 3000;
@@ -48,10 +48,10 @@ app.use(express.static(__dirname + '/css'));
 //----------------------------------------------------------------------
 
 //ruta get para mostrar el formulario y la lista de estudiantes
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     const query = 'SELECT * FROM bitacora_lubricacion ORDER BY fecha DESC';
-    bd.query(query, (error, resultados)=>{
-        if(error){
+    bd.query(query, (error, resultados) => {
+        if (error) {
             console.log('Error al obtener la bitácora: ' + error);
             res.status(500).send('Error al obtener la bitácora');
             return;
@@ -62,29 +62,54 @@ app.get('/', (req, res)=>{
 
 
 //ruta para crear un estudiante
-app.post('/estudiantes', (req, res) => {
-    //obtener los parametros del formulario
-    const { nombre, edad, curso } = req.body;
-    console.log(nombre, edad, curso );
-    const querry = `INSERT INTO estudiantes (nombre, edad, curso) VALUES ('${nombre}', ${edad}, '${curso}');`;
+app.post('/bitacora', (req, res) => {
+    const {
+        equipo,
+        tipo_lubricante,
+        fecha,
+        cantidad_utilizada,
+        analisis,
+        resultados_analisis,
+        fecha_proxima
+    } = req.body;
+
+    const querry = `INSERT INTO bitacora_lubricacion 
+    (equipo, tipo_lubricante, fecha, cantidad_utilizada, 
+    analisis, resultados_analisis, fecha_proxima) 
+    VALUES (?, ?, ?, ?, ?, ?, ?);`;
+
+    const values = [
+        equipo, 
+        tipo_lubricante, 
+        fecha, 
+        parseFloat(cantidad_utilizada), 
+        parseInt(analisis), 
+        resultados_analisis || null, 
+        fecha_proxima || null 
+    ];
+
     bd.query(querry, (error, resultados) => {
         if (error) {
-            console.log('Error al crear el estudiante: ' + error);
-            res.status(500).send('Error al crear el estudiante');
+            console.log('Error al agregar la entrada a la bitácora: ' + error);
+            res.status(500).send('Error al agregar la entrada a la bitácora');
+            return;
         }
+
         res.redirect('/');
     });
+
 });
 
 
 //Ruta para borrar
-app.get('/estudiantes/delete/:id', (req, res) => {
-    const estudianteId = req.params.id;
-    const querry = `DELETE FROM estudiantes WHERE id = ${estudianteId};`;
-    bd.query(querry, (error, resultados) => {
+app.get('/bitacora/delete/:id', (req, res) => {
+    const registroId = req.params.id;
+    const query = 'DELETE FROM bitacora_lubricacion WHERE id = ?;';
+    bd.query(query, [registroId], (error, resultados) => {
         if (error) {
-            console.log('Error al eliminar el estudiante: ' + error);
-            res.status(500).send('Error al eliminar el estudiante');
+            console.log('Error al eliminar el registro: ' + error);
+            res.status(500).send('Error al eliminar el registro');
+            return;
         }
         res.redirect('/');
     });
@@ -92,38 +117,63 @@ app.get('/estudiantes/delete/:id', (req, res) => {
 
 
 //Ruta para buscar y editar
-app.get('/estudiantes/edit/:id', (req, res) => {
-    const estudianteId = req.params.id;
-    // Obtener todos los estudiantes y seleccionar el que vamos a editar
-    const query = 'SELECT * FROM estudiantes';
-    bd.query(query, (error, resultados) => {
+app.get('/bitacora/edit/:id', (req, res) => {
+    const registroId = req.params.id;
+    const query = 'SELECT * FROM bitacora_lubricacion WHERE id = ?';
+    bd.query(query, [registroId], (error, resultados) => {
         if (error) {
-            console.log('Error al obtener los estudiantes: ' + error);
-            return res.status(500).send('Error al obtener los estudiantes');
+            console.log('Error al obtener el registro para edición: ' + error);
+            return res.status(500).send('Error al obtener el registro para edición');
         }
-        const estudiante = resultados.find(r => String(r.id) === String(estudianteId));
-        if (!estudiante) {
-            return res.status(404).send('Estudiante no encontrado');
+        
+        if (resultados.length === 0) {
+            return res.status(404).send('Registro no encontrado');
         }
-        return res.render('edit', { estudiante: estudiante, estudiantes: resultados });
+        
+        const registro = resultados[0];
+        return res.render('edit', { registro: registro });
     });
 });
 
-app.post('/estudiantes/update/:id', (req, res) => {
-    //obtener los parametros del formulario
-    const { nombre, edad, curso } = req.body;
-    console.log(nombre, edad, curso );
-    const querry = `UPDATE estudiantes SET nombre='${nombre}', edad=${edad}, curso='${curso}' WHERE id = ${req.params.id};`;
-    bd.query(querry, (error, resultados) => {
+app.post('/bitacora/update/:id', (req, res) => {
+    const registroId = req.params.id;
+    const { 
+        equipo, 
+        tipo_lubricante, 
+        fecha, 
+        cantidad_utilizada, 
+        analisis, 
+        resultados_analisis, 
+        fecha_proxima 
+    } = req.body;
+
+    const query = `
+        UPDATE bitacora_lubricacion 
+        SET equipo = ?, tipo_lubricante = ?, fecha = ?, cantidad_utilizada = ?, 
+            analisis = ?, resultados_analisis = ?, fecha_proxima = ? 
+        WHERE id = ?;
+    `;
+
+    const values = [
+        equipo, 
+        tipo_lubricante, 
+        fecha, 
+        parseFloat(cantidad_utilizada), 
+        parseInt(analisis), 
+        resultados_analisis || null, 
+        fecha_proxima || null,
+        registroId
+    ];
+
+    bd.query(query, values, (error, resultados) => {
         if (error) {
-            console.log('Error al actualizar el estudiante: ' + error);
-            res.status(500).send('Error al actualizar el estudiante');
+            console.log('Error al actualizar el registro: ' + error);
+            res.status(500).send('Error al actualizar el registro');
+            return;
         }
         res.redirect('/');
     });
 });
-
-
 
 
 app.listen(port, () => {
