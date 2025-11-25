@@ -41,6 +41,7 @@ app.set('views', __dirname + '/views');
 
 //para la carga de imagenes, css, multimedia, etc es necesario configurar una carpeta public, en la cual todos los recursos del proyecto se podran consumir
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/js'));
 
 //vamos a crear el crud de estudiantes a partir de rutas
 //----------------------------------------------------------------------
