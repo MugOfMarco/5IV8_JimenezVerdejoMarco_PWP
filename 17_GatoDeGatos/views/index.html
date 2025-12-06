@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Tic Tac Toe</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gato de gatos</h1>
+    
+    <div class="scoreboard">
+      <div class="score">
+        <h2>Jugador X</h2>
+        <div class="number" id="scoreX">0</div>
+      </div>
+      <div class="score">
+        <h2>Jugador O</h2>
+        <div class="number" id="scoreO">0</div>
+      </div>
+    </div>
+
+    <div class="current-player">
+      Turno: <span id="currentPlayer">X</span>
+    </div>
+
+    <div id="winnerMessage" class="winner-message" style="display: none;"></div>
+
+    <div class="ultimate-board" id="ultimateBoard"></div>
+
+    <div class="controls">
+      <button class="reset-btn" onclick="resetGame()">Nueva Partida</button>
+      <button class="reset-scores-btn" onclick="resetScores()">Resetear Scores</button>
+      <button onclick="location.href='.../index.html'" class="reset-scores-btn">Regresar al index</button>
+    </div>
+  </div>
+
+  <script src="./js/validaciones.js"></script>
+</body>
+</html>
